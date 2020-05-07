@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  web1:
+    container_name: web1-container
+    build:
+      context: ./Docker/web1/
+      dockerfile: Dockerfile
+
+  web2:
+    container_name: web2-container
+    build:
+      context: ./Docker/web2/
+      dockerfile: Dockerfile
+
+  https-portal:
+    image: steveltn/https-portal:1
+    container_name: https-container
+    ports:
+      - '443:443'
+    environment:
+      DOMAINS: 'localhost -> http://web1-container:80, localhost2 -> http://web2-container:80'
+      STAGE: local
