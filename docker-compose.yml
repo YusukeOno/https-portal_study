@@ -19,5 +19,5 @@ services:
     ports:
       - '443:443'
     environment:
-      DOMAINS: 'localhost -> http://web1-container:80, localhost2 -> http://web2-container:80'
+      DOMAINS: 'local.host1.jp -> http://web1-container:80, local.host2.jp -> http://web2-container:80'
       STAGE: local
